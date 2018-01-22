@@ -37,23 +37,27 @@ npm run dev
 Register
 
 ```bash
-  Route.post('/api/v1/auth/register', 'Api/AuthController.register');
+POST /api/v1/auth/register
+{email: 'youremail@gmail.com', password: 'yourpasswod'}
 ```
 
 Sign-In
 
 ```bash
-  Route.post('api/v1/auth/sign-in', 'Api/AuthController.signIn');
+POST /api/v1/auth/sign-in
+{email: 'youremail@gmail.com', password: 'yourpasswod'}
 ```
 
 Refresh the token
 
 ```bash
-  Route.post('api/v1/auth/token/refresh', 'Api/AuthController.refreshToken');
+POST /api/v1/auth/token/refresh
+{refresh_token:'YOUR_TOKEN'}
 ```
 
 Get the current user
 
 ```bash
-  Route.post('api/v1/user/me', 'Api/UserController.getUser');
+GET /api/v1/user/me
+Authorization : Bearer YOUR_TOKEN
 ```
