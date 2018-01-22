@@ -6,9 +6,15 @@
   "scripts": {
     "start": "node server.js",
     "test": "node ace test",
-    "dev": "adonis serve --dev"
+    "dev": "adonis serve --dev",
+    "lint": "./node_modules/.bin/eslint **/*.js --ignore-pattern node_modules/"
   },
-  "keywords": ["adonisjs", "jwt", "authentication", "boilerplate"],
+  "keywords": [
+    "adonisjs",
+    "jwt",
+    "authentication",
+    "boilerplate"
+  ],
   "author": "",
   "license": "UNLICENSED",
   "private": true,
@@ -24,7 +30,10 @@
     "@adonisjs/validator": "^4.0.9",
     "mysql": "^2.15.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "prettier": "1.10.2"
+  },
   "autoload": {
     "App": "./app"
   }

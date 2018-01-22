@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
-const Hash = use('Hash')
+const Hash = use('Hash');
 
-const UserHook = module.exports = {}
+const UserHook = (module.exports = {});
 
 /**
  * Hash using password as a hook.
@@ -13,8 +13,8 @@ const UserHook = module.exports = {}
  *
  * @return {void}
  */
-UserHook.hashPassword = async (userInstance) => {
+UserHook.hashPassword = async userInstance => {
   if (userInstance.password) {
-    userInstance.password = await Hash.make(userInstance.password)
+    userInstance.password = await Hash.make(userInstance.password);
   }
-}
+};

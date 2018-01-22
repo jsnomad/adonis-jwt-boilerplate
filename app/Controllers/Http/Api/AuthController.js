@@ -1,5 +1,3 @@
-'use strict';
-
 const Hash = use('Hash');
 const { validate } = use('Validator');
 const Encryption = use('Encryption');

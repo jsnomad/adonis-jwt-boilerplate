@@ -1,5 +1,3 @@
-'use strict';
-
 class UserController {
   async getUser({ response, auth }) {
     try {

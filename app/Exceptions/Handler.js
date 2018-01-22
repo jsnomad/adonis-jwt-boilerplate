@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /**
  * This class handles all exceptions thrown during
@@ -18,8 +18,8 @@ class ExceptionHandler {
    *
    * @return {void}
    */
-  async handle (error, { request, response }) {
-    response.status(error.status).send(error.message)
+  async handle(error, { request, response }) {
+    response.status(error.status).send(error.message);
   }
 
   /**
@@ -32,8 +32,7 @@ class ExceptionHandler {
    *
    * @return {void}
    */
-  async report (error, { request }) {
-  }
+  async report(error, { request }) {}
 }
 
-module.exports = ExceptionHandler
+module.exports = ExceptionHandler;
