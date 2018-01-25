@@ -30,6 +30,7 @@ Route.group(() => {
   Route.post('/auth/sign-in', 'Api/AuthController.signIn');
   Route.post('/auth/register', 'Api/AuthController.register');
   Route.post('/auth/token/refresh', 'Api/AuthController.refreshToken');
+  Route.post('/auth/logout', 'Api/AuthController.logout');
 
   /*
   |--------------------------------------------------------------------------

@@ -52,7 +52,7 @@ Refresh the token
 
 ```bash
 POST /api/v1/auth/token/refresh
-{refresh_token:'YOUR_TOKEN'}
+{refresh_token:'REFRESH_TOKEN'}
 ```
 
 Get the current user
@@ -60,4 +60,11 @@ Get the current user
 ```bash
 GET /api/v1/user/me
 Authorization : Bearer YOUR_TOKEN
+```
+
+Logout
+
+```bash
+POST /api/v1/auth/logout
+{refresh_token:'REFRESH_TOKEN'}
 ```

@@ -2,6 +2,7 @@ const Hash = use('Hash');
 const { validate } = use('Validator');
 const Encryption = use('Encryption');
 const User = use('App/Models/User');
+const Token = use('App/Models/Token');
 
 class AuthController {
   async signIn({ request, response, auth }) {
@@ -68,6 +69,34 @@ class AuthController {
           .generateForRefreshToken(refresh_token);
       } catch (err) {
         response.status(401).send({ error: 'Invalid refresh token' });
+      }
+    } else {
+      response.status(401).send(validation.messages());
+    }
+  }
+
+  async logout({ request, response, auth }) {
+    const rules = {
+      refresh_token: 'required'
+    };
+
+    const { refresh_token } = request.only(['refresh_token']);
+
+    const validation = await validate({ refresh_token }, rules);
+
+    const decrypted = Encryption.decrypt(refresh_token);
+
+    if (!validation.fails()) {
+      try {
+        const refreshToken = await Token.findBy('token', decrypted);
+        if (refreshToken) {
+          refreshToken.delete();
+          response.status(200).send({ status: 'ok' });
+        } else {
+          response.status(401).send({ error: 'Invalid refresh token' });
+        }
+      } catch (err) {
+        response.status(401).send({ error: 'something went wrong' });
       }
     } else {
       response.status(401).send(validation.messages());
