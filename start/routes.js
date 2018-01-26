@@ -37,5 +37,5 @@ Route.group(() => {
   | API - User
   |--------------------------------------------------------------------------
   */
-  Route.post('/user/me', 'Api/UserController.getUser');
+  Route.get('/user/me', 'Api/UserController.getUser');
 }).prefix('api/v1');
